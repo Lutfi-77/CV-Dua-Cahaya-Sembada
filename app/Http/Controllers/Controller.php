@@ -10,4 +10,22 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public $menus = [
+        [
+            "title" => "Home",
+            "link" => "#",
+            "icon" => "home"
+        ], 
+        [
+            "title" => "Form",
+            "link" => "#",
+            "icon" => "home"
+        ], 
+        [
+            "title" => "Card",
+            "link" => "#",
+            "icon" => "home"
+        ]
+    ];
 }

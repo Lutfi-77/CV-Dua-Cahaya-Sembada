@@ -11,7 +11,11 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('admin.dashboard');
+        $data = [
+            'menus' => $this->menus
+        ];
+        
+        return view('admin.dashboard', $data);
     }
 
 }

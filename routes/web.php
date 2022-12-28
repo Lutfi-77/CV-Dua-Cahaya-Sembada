@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // Controller
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,14 @@ Route::get('/', function () {
 });
 
 Route::prefix('backend')->group(function() {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/', function() {
+        return redirect()->route('dashboard');
+    });
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::middleware('auth')->group(function(){
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    });
 });
