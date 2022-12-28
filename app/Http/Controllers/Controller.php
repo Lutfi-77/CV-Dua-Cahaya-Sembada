@@ -11,21 +11,26 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public $menus = [
-        [
-            "title" => "Home",
-            "link" => "#",
-            "icon" => "home"
-        ], 
-        [
-            "title" => "Form",
-            "link" => "#",
-            "icon" => "home"
-        ], 
-        [
-            "title" => "Card",
-            "link" => "#",
-            "icon" => "home"
-        ]
-    ];
+    public $menus = [];
+
+    public function __construct()
+    {
+        $this->menus = [
+            [
+                "title" => "Home",
+                "link" => route('dashboard'),
+                "icon" => "home"
+            ], 
+            [
+                "title" => "Manage Service",
+                "link" => route('service'),
+                "icon" => "home"
+            ], 
+            [
+                "title" => "Card",
+                "link" => "#",
+                "icon" => "home"
+            ]
+        ];
+    }
 }
