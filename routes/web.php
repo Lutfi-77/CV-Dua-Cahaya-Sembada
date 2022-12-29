@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\ServiceController;
+use App\Http\Controllers\admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,9 @@ Route::prefix('backend')->group(function() {
     Route::middleware('auth')->group(function(){
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/service', [ServiceController::class, 'index'])->name('service');
+        Route::get('/service/add', [ServiceController::class, 'addForm'])->name('service.form');
+        
+        Route::get('/category', [CategoryController::class, 'index'])->name('category');
+        Route::get('/category/add', [CategoryController::class, 'categoryAdd'])->name('category.add');
     });
 });

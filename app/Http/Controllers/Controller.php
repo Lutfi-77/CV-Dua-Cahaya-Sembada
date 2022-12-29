@@ -27,10 +27,10 @@ class Controller extends BaseController
                 "icon" => "home"
             ], 
             [
-                "title" => "Card",
-                "link" => "#",
+                "title" => "Category",
+                "link" => route('category'),
                 "icon" => "home"
-            ]
+            ],
         ];
     }
 }
