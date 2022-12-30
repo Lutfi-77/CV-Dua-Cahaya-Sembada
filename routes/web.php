@@ -39,5 +39,6 @@ Route::prefix('backend')->group(function() {
         Route::get('/category', [CategoryController::class, 'index'])->name('category');
         Route::get('/category/add', [CategoryController::class, 'categoryAdd'])->name('category.add');
         Route::post('/category/add', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
     });
 });
