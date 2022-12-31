@@ -30,7 +30,7 @@
                 </td>
                 <td class="px-4 py-3 text-md">
                     <div class="flex">
-                        <a href="#" class="bg-teal-600 mx-1 rounded-md px-2 text-white">Edit</a>
+                        <a href="{{route('category.editForm', $category->id)}}" class="bg-teal-600 mx-1 rounded-md px-2 text-white">Edit</a>
                         <a href="{{route('category.delete', $category->id)}}" class="bg-red-600 mx-1 rounded-md px-2 text-white" onclick="return confirm('Yakin mau dihapus?')">Delete</a>
                     </div>
                 </td>

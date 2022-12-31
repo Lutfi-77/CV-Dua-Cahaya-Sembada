@@ -35,6 +35,24 @@ class CategoryController extends Controller
         return redirect()->route('category');
     }
 
+    public function editForm($id)
+    {
+        $category = Category::find($id);
+        return view('admin.category.edit', ['menus' => $this->menus, 'category' => $category]);
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'title' => 'required',
+        ]);
+        $category = Category::find($id);
+        $category->category = $request->title;
+        $category->save();
+        Alert::toast('Data berhasil diubah', 'success');
+        return redirect()->route('category');
+    }
+
     public function delete($id)
     {
         $category = Category::find($id);

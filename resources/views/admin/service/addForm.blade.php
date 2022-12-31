@@ -11,28 +11,40 @@
 
 @section('content')
 <div class="bg-white shadow-xl px-5 py-5">
-    <div class="grid grid-cols-2 gap-5">
-        <div class="flex flex-col">
-            <label>title</label>
-            <input type="text" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li class="text-red-500">*{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action="{{route('service.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="grid grid-cols-2 gap-5">
+            <div class="flex flex-col">
+                <label>title</label>
+                <input type="text" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none" name="title" value="{{old('title')}}">
+            </div>
+            <div class="flex flex-col">
+                <label>Category</label>
+                <select name="category" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->category}}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
         <div class="flex flex-col">
-            <label>Category</label>
-            <select name="category" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
-                <option value="1">1</option>
-                <option value="1">1</option>
-                <option value="1">1</option>
-            </select>
+            <label>Description</label>
+            <textarea name="description" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">{{old('description')}}</textarea>
         </div>
-    </div>
-    <div class="flex flex-col">
-        <label>Description</label>
-        <textarea class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none"> </textarea>
-    </div>
-    <div class="flex flex-col">
-        <label>Description</label>
-        <input type="file" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
-    </div>
-    <button class="bg-purple-600 text-white px-3 py-1 rounded-md mt-2">Save</button>
+        <div class="flex flex-col">
+            <label>Image</label>
+            <input type="file" name="image" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+        </div>
+        <button class="bg-purple-600 text-white px-3 py-1 rounded-md mt-2">Save</button>
+    </form>
 </div>
 @endsection
