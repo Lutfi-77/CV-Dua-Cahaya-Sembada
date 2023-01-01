@@ -33,9 +33,12 @@ Route::prefix('backend')->group(function() {
 
     Route::middleware('auth')->group(function(){
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
         Route::get('/service', [ServiceController::class, 'index'])->name('service');
         Route::get('/service/add', [ServiceController::class, 'create'])->name('service.form');
         Route::post('/service/add', [ServiceController::class, 'store'])->name('service.store');
+        Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+        Route::post('/service/edit/{id}', [ServiceController::class, 'update'])->name('service.update');
         Route::get('/service/delete/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
         // Route::resource('/service', ServiceController::class);
         

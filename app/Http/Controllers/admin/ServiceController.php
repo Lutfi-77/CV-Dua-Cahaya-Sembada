@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Alert;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Category;
 use App\Models\Service;
@@ -30,7 +31,7 @@ class ServiceController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.service.addForm', ["menus" => $this->menus, 'categories' => $categories]);
+        return view('admin.service.add', ["menus" => $this->menus, 'categories' => $categories]);
     }
 
     /**
@@ -49,12 +50,14 @@ class ServiceController extends Controller
             'image' => 'mimes:jpeg,png,jpg'
         ]);
 
-        $img = $request->file('image');
-        $upload = $img->store('img/service');
+        if($request->hasFile('image')){
+            $upload = $request->file('image')->store('img/service');
+            $service->image = $upload;
+        }
+
         $service->title = $request->title;
         $service->category_id = $request->category;
         $service->description = $request->description;
-        $service->image = $upload;
         $service->save();
         Alert::toast('Data berhasil ditambahkan', 'success');
         return redirect()->route('service');
@@ -80,7 +83,9 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::find($id);
+        $categories = Category::all();
+        return view('admin.service.edit', ["menus" => $this->menus, 'categories' => $categories, 'service' => $service]);
     }
 
     /**
@@ -92,7 +97,26 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'image' => 'mimes:jpeg,png,jpg'
+        ]);
+        
+        $service = Service::find($id);
+
+        if($request->hasFile('image')){
+            $upload = $request->file('image')->store('img/service');
+            $service->image = $upload;
+        }
+
+        $service->title = $request->title;
+        $service->category_id = $request->category;
+        $service->description = $request->description;
+        $service->save();
+        Alert::toast('Data berhasil diubah', 'success');
+        return redirect()->route('service');
     }
 
     /**
@@ -104,8 +128,15 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         $service = Service::find($id);
-        $service->delete();
-        Alert::toast('Data berhasil dihapus', 'success');
-        return redirect()->route('service');
+        $delete = $service->delete();
+        if( $delete ){
+            Storage::disk('public')->delete($service->image);
+            Alert::toast('Data berhasil dihapus', 'success');
+            return redirect()->route('service');
+        }else{
+            Alert::toast('Data berhasil dihapus', 'error');
+            return redirect()->route('service');
+        }
+        
     }
 }

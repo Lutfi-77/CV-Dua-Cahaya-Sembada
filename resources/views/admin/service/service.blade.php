@@ -14,8 +14,7 @@
 <div class="w-full shadow-xl border border-slate-200 py-5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 px-3">
     <table class="w-full whitespace-no-wrap" id="myTable">
         <thead>
-            <tr
-                class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+            <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                 <th class="px-4 py-3">Title</th>
                 <th class="px-4 py-3">Category</th>
                 <th class="px-4 py-3">Description</th>
@@ -36,11 +35,11 @@
                     {{$service->description}}
                 </td>
                 <td class="px-4 py-3 text-sm">
-                    <img class="w-14 h-14" src="{{url("storage/".$service->image)}}" alt="thumb">
+                    <img class="w-14 h-14" src="{{$service->image == null || $service->image == "" ? asset('assets/images/noimage.png') : url("storage/".$service->image)}}" alt="thumb">
                 </td>
                 <td class="px-4 py-3 text-sm">
                     <div class="flex">
-                        <a href="" class="bg-teal-600 mx-1 rounded-md px-2 text-white">Edit</a>
+                        <a href="{{route('service.edit', $service->id)}}" class="bg-teal-600 mx-1 rounded-md px-2 text-white">Edit</a>
                         <a href="{{route('service.destroy', $service->id)}}" class="bg-red-600 mx-1 rounded-md px-2 text-white" onclick="return confirm('Yakin mau dihapus?')">Delete</a>
                     </div>
                 </td>
