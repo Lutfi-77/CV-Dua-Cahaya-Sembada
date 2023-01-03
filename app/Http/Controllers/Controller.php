@@ -31,6 +31,11 @@ class Controller extends BaseController
                 "link" => route('category'),
                 "icon" => "home"
             ],
+            [
+                "title" => "Client",
+                "link" => route('client.index'),
+                "icon" => "home"
+            ],
         ];
     }
 }

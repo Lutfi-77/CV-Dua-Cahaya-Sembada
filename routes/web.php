@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ServiceController;
+use App\Http\Controllers\admin\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::prefix('backend')->group(function() {
         Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
         Route::post('/service/edit/{id}', [ServiceController::class, 'update'])->name('service.update');
         Route::get('/service/delete/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
-        // Route::resource('/service', ServiceController::class);
+        Route::resource('/client', ClientController::class);
         
         Route::get('/category', [CategoryController::class, 'index'])->name('category');
         Route::get('/category/add', [CategoryController::class, 'categoryAdd'])->name('category.add');
