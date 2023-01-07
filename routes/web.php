@@ -51,7 +51,7 @@ Route::prefix('backend')->group(function() {
         
         Route::get('/category', [CategoryController::class, 'index'])->name('category');
         Route::get('/category/add', [CategoryController::class, 'categoryAdd'])->name('category.add');
-        Route::post('/category/add', [CategoryController::class, 'sto re'])->name('category.store');
+        Route::post('/category/add', [CategoryController::class, 'store'])->name('category.store');
         Route::get('/category/edit/{id}', [CategoryController::class, 'editForm'])->name('category.editForm');
         Route::post('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
         Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');

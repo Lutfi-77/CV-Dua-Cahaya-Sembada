@@ -20,11 +20,14 @@
         </ul>
     </div>
     @endif
-    <form action="{{route('category.edit', request()->route('id'))}}" method="POST">
+    <form action="{{route('category.edit', request()->route('id'))}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="flex flex-col">
             <label>Title</label>
             <input type="text" name="title" class="border rounded-md py-1 px-2  focus:border-purple-300 focus:outline-none" value="{{$category->category}}">
+            
+            <label>Image</label>
+            <input type="file" name="image" class="border rounded-md py-1 px-2  focus:border-purple-300 focus:outline-none" value="{{$category->category}}">
         </div>
         <button class="bg-purple-600 text-white px-3 py-1 rounded-md mt-2">Save</button>
     </form>

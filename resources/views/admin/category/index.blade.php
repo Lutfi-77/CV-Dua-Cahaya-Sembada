@@ -19,6 +19,7 @@
             <tr
                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                 <th class="px-4 py-3">Category</th>
+                <th class="px-4 py-3">Image</th>
                 <th class="px-4 py-3">Action</th>
             </tr>
         </thead>
@@ -27,6 +28,9 @@
             <tr class="text-gray-700 dark:text-gray-400">
                 <td class="px-4 py-3 text-md">
                     {{$category->category}}
+                </td>
+                <td class="px-4 py-3 text-md">
+                    <img class="w-14 h-14" src="{{$category->image == null || $category->image == "" ? asset('assets/images/noimage.png') : url("storage/".$category->image)}}" alt="thumb">
                 </td>
                 <td class="px-4 py-3 text-md">
                     <div class="flex">
