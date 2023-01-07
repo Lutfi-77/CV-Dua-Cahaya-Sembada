@@ -13,6 +13,7 @@
 </head>
 
 <body class="font-nunito">
+    @include('sweetalert::alert')
     {{-- Header --}}
     @include('master.header')
     {{-- End Header --}}

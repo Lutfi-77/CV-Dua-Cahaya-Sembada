@@ -28,6 +28,7 @@ use App\Http\Controllers\admin\ClientController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/service', [UserServiceController::class, 'index'])->name('service');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'sendMail'])->name('sendMail');
 
 Route::prefix('backend')->group(function() {
     Route::get('/', function() {
