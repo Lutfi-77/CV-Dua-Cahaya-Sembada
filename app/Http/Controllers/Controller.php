@@ -27,12 +27,12 @@ class Controller extends BaseController
                 "icon" => "home"
             ], 
             [
-                "title" => "Category",
+                "title" => "Manage Category",
                 "link" => route('category'),
                 "icon" => "home"
             ],
             [
-                "title" => "Client",
+                "title" => "Manage Client",
                 "link" => route('client.index'),
                 "icon" => "home"
             ],
