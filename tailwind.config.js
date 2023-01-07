@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
     darkMode: "class",
     content: [
@@ -7,7 +8,11 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                nunito: ['"Nunito"', ...defaultTheme.fontFamily.sans],
+            },
+        },
     },
     plugins: [],
 };
