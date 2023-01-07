@@ -25,8 +25,8 @@ use App\Http\Controllers\admin\ClientController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/service', [UserServiceController::class, 'index'])->name('service');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/service', [UserServiceController::class, 'index'])->name('service.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'sendMail'])->name('sendMail');
 

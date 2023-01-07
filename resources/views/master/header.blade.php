@@ -4,12 +4,12 @@
             <img src="https://rec-data.kalibrr.com/www.kalibrr.com/logos/T65KJRY8ZHA62VRLK76JZU8S72R79J2LDJ7MYJ6P-5d356a15.png" alt="logo" class="w-full">
         </div>
         <div class="grid grid-cols-6 gap-2 place-items-center">
-            <a href="">Home</a>
+            <a href="{{route('home')}}">Home</a>
             <a href="">About Us</a>
             <a href="">Our Client</a>
-            <a href="">Our Service</a>
+            <a href="{{route('service.index')}}">Our Service</a>
             <a href="">Our Project</a>
-            <a href="">Contact Us</a>
+            <a href="{{route('contact')}}">Contact Us</a>
         </div>
     </header>
 </div>
