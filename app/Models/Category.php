@@ -14,4 +14,9 @@ class Category extends Model
         return $this->hasOne(Service::class);
     }
 
+    public function project()
+    {
+        return $this->hasOne(Service::class);
+    }
+
 }

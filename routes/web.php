@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\ClientController;
+use App\Http\Controllers\admin\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,6 @@ Route::prefix('backend')->group(function() {
         Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
         Route::post('/service/edit/{id}', [ServiceController::class, 'update'])->name('service.update');
         Route::get('/service/delete/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
-        Route::resource('/client', ClientController::class);
         
         Route::get('/category', [CategoryController::class, 'index'])->name('category');
         Route::get('/category/add', [CategoryController::class, 'categoryAdd'])->name('category.add');
@@ -55,5 +55,8 @@ Route::prefix('backend')->group(function() {
         Route::get('/category/edit/{id}', [CategoryController::class, 'editForm'])->name('category.editForm');
         Route::post('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
         Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+        
+        Route::resource('/client', ClientController::class);
+        Route::resource('/project', ProjectController::class);
     });
 });

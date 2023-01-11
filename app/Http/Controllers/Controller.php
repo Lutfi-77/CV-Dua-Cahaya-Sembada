@@ -22,15 +22,20 @@ class Controller extends BaseController
                 "icon" => "home"
             ], 
             [
+                "title" => "Manage Category",
+                "link" => route('category'),
+                "icon" => "home"
+            ],
+            [
                 "title" => "Manage Service",
                 "link" => route('service'),
                 "icon" => "home"
             ], 
             [
-                "title" => "Manage Category",
-                "link" => route('category'),
+                "title" => "Manage Project",
+                "link" => route('project.index'),
                 "icon" => "home"
-            ],
+            ], 
             [
                 "title" => "Manage Client",
                 "link" => route('client.index'),
