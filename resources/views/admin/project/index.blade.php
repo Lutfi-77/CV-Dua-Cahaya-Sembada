@@ -15,28 +15,40 @@
     <table class="w-full whitespace-no-wrap" id="myTable">
         <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <th class="px-4 py-3">Title</th>
                 <th class="px-4 py-3">Category</th>
+                <th class="px-4 py-3">Description</th>
                 <th class="px-4 py-3">Image</th>
                 <th class="px-4 py-3">Action</th>
             </tr>
         </thead>
         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-            {{-- @foreach ($categories as $category) --}}
+            @foreach ($projects as $project)
             <tr class="text-gray-700 dark:text-gray-400">
-                <td class="px-4 py-3 text-md">
-                    asdasd
+                <td class="px-4 py-3">
+                    {{$project->title}}
                 </td>
-                <td class="px-4 py-3 text-md">
-                    <img class="w-14 h-14" src="" alt="thumb">
+                <td class="px-4 py-3 text-sm">
+                    {{$project->category->category}}
                 </td>
-                <td class="px-4 py-3 text-md">
+                <td class="px-4 py-3 text-xs">
+                    {{$project->description}}
+                </td>
+                <td class="px-4 py-3 text-sm">
+                    <img class="w-14 h-14" src="{{$project->image == null || $project->image == "" ? asset('assets/images/noimage.png') : url("storage/".$project->image)}}" alt="thumb">
+                </td>
+                <td class="px-4 py-3 text-sm">
                     <div class="flex">
-                        <a href="" class="bg-teal-600 mx-1 rounded-md px-2 text-white">Edit</a>
-                        <a href="" class="bg-red-600 mx-1 rounded-md px-2 text-white" onclick="return confirm('Yakin mau dihapus?')">Delete</a>
+                        <a href="{{route('project.edit', $project->id)}}" class="bg-teal-600 mx-1 rounded-md px-2 text-white">Edit</a>
+                        <form action="{{route('project.destroy', $project->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="bg-red-600 mx-1 rounded-md px-2 text-white" onclick="return confirm('Yakin mau dihapus?')">Delete</button>
+                        </form>
                     </div>
                 </td>
             </tr>
-            {{-- @endforeach --}}
+            @endforeach
         </tbody>
     </table>
 </div>

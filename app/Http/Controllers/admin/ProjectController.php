@@ -4,8 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Alert;
 
 use App\Models\Category;
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -16,7 +19,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('admin.project.index', ['menus' => $this->menus]);
+        $projects = Project::all();
+        return view('admin.project.index', ['menus' => $this->menus, 'projects' => $projects]);
     }
 
     /**
@@ -38,7 +42,25 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = new Project;
+        $validated = $request->validate([
+            'title' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'image' => 'mimes:jpeg,png,jpg'
+        ]);
+
+        if($request->hasFile('image')){
+            $upload = $request->file('image')->store('img/project');
+            $project->image = $upload;
+        }
+
+        $project->title = $request->title;
+        $project->category_id = $request->category;
+        $project->description = $request->description;
+        $project->save();
+        Alert::toast('Data berhasil ditambahkan', 'success');
+        return redirect()->route('project.index');
     }
 
     /**
@@ -60,7 +82,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::find($id);
+        $categories = Category::all();
+        return view('admin.project.edit', ['menus' => $this->menus, 'categories' => $categories, 'project' => $project]);
     }
 
     /**
@@ -72,7 +96,25 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::find($id);
+        $validated = $request->validate([
+            'title' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'image' => 'mimes:jpeg,png,jpg'
+        ]);
+
+        if($request->hasFile('image')){
+            $upload = $request->file('image')->store('img/project');
+            $project->image = $upload;
+        }
+
+        $project->title = $request->title;
+        $project->category_id = $request->category;
+        $project->description = $request->description;
+        $project->save();
+        Alert::toast('Data berhasil ditambahkan', 'success');
+        return redirect()->route('project.index');
     }
 
     /**
@@ -83,6 +125,17 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::find($id);
+        $delete = $project->delete();
+        if( $delete ){
+            if( $project->image){
+                Storage::disk('public')->delete($project->image);
+            }
+            Alert::toast('Data berhasil dihapus', 'success');
+            return redirect()->route('project.index');
+        }else{
+            Alert::toast('Data gagal dihapus', 'error');
+            return redirect()->route('project.index');
+        }
     }
 }

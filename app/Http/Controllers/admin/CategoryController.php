@@ -68,7 +68,9 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $delete = $category->delete();
         if( $delete ){
-            Storage::disk('public')->delete($category->image);
+            if( $category->image){
+                Storage::disk('public')->delete($category->image);
+            }
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('category');
         }else{

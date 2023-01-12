@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->foreignId('category_id');
-            $table->string('client');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

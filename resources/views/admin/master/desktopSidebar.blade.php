@@ -6,7 +6,7 @@
         </a>
         <ul class="mt-6">
             <li class="relative px-6 py-3">
-                <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                <span class="absolute inset-y-0 left-0 w-1 {{(request()->is('backend/dashboard*')) ? 'bg-purple-600' : ''}} rounded-tr-lg rounded-br-lg"
                     aria-hidden="true"></span>
                 <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                     href="{{route('dashboard')}}">
@@ -23,6 +23,11 @@
         <ul>
             @foreach ($menus as $item)
             <li class="relative px-6 py-3">
+                {{-- {{dd(request()->url())}} --}}
+                @if (request()->url() == $item['link'])
+                {{-- @if (request()->is($item['link'])) --}}
+                <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
+                @endif
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                     href="{{$item['link']}}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"

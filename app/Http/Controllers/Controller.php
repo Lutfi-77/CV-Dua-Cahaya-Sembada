@@ -17,13 +17,13 @@ class Controller extends BaseController
     {
         $this->menus = [
             [
-                "title" => "Home",
-                "link" => route('dashboard'),
-                "icon" => "home"
-            ], 
-            [
                 "title" => "Manage Category",
                 "link" => route('category'),
+                "icon" => "home"
+            ],
+            [
+                "title" => "Manage Client",
+                "link" => route('client.index'),
                 "icon" => "home"
             ],
             [
@@ -36,11 +36,6 @@ class Controller extends BaseController
                 "link" => route('project.index'),
                 "icon" => "home"
             ], 
-            [
-                "title" => "Manage Client",
-                "link" => route('client.index'),
-                "icon" => "home"
-            ],
         ];
     }
 }

@@ -130,7 +130,9 @@ class ServiceController extends Controller
         $service = Service::find($id);
         $delete = $service->delete();
         if( $delete ){
-            Storage::disk('public')->delete($service->image);
+            if( $service->image){
+                Storage::disk('public')->delete($service->image);
+            }
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('service');
         }else{
