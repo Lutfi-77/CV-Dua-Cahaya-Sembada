@@ -11,6 +11,17 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            font-family: "Poppins";
+        }
+    </style>
+
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,6 +39,9 @@
         
     @isset($topSpace) </div> @endisset
 
+    {{-- Footer --}}
+    @include('master.footer')
+    
     
 </body>
 

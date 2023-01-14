@@ -5,13 +5,6 @@
 * {
     box-sizing: border-box;
 }
-html,
-body {
-    @apply w-full h-full;
-}
-body {
-    font-family: "Poppins";
-}
 
 .home__background-hero {
     @apply h-full w-screen bg-cover bg-center flex relative bg-no-repeat;
