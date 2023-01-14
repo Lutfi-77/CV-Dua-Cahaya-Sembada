@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    @apply w-full h-full;
+}
+body {
+    font-family: "Poppins";
+}
+
+.home__background-hero {
+    @apply h-full w-screen bg-cover bg-center flex relative bg-no-repeat;
+
+    /* background-color: whitesmoke; */
+    /* background-image: url(".."); */
+    /* background-image: url("/assets/images/background-photo-home.jpg"); */
+}
+
+.hero__arrow-down {
+    background: url("./../icons/arrow_down_accent.svg");
+
+    @apply absolute bottom-12 right-12 w-9 h-16 bg-contain bg-center bg-no-repeat;
+}

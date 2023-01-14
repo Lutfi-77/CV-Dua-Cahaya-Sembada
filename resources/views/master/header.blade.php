@@ -1,15 +1,24 @@
-<div class="fixed top-0 justify-center w-full py-1">
+@php 
+$tempGroupLink = [
+    ['link' => route('home'), 'title' => 'Home'],
+    ['link' => route('home'), 'title' => 'About'],
+    ['link' => route('home'), 'title' => 'Our Client'],
+    ['link' => route('service.index'), 'title' => 'Service'],
+    ['link' => route('home'), 'title' => 'Project'],
+    ['link' => route('home'), 'title' => 'Team'],
+    ['link' => route('contact'), 'title' => 'Contant Us'],
+];
+@endphp 
+
+<div class="fixed z-50 top-0 justify-center w-full py-7">
     <header class="container mx-auto flex justify-between items-center py-2">
         <div class="w-20">
             <img src="https://rec-data.kalibrr.com/www.kalibrr.com/logos/T65KJRY8ZHA62VRLK76JZU8S72R79J2LDJ7MYJ6P-5d356a15.png" alt="logo" class="w-full">
         </div>
-        <div class="grid grid-cols-6 gap-2 place-items-center">
-            <a href="{{route('home')}}">Home</a>
-            <a href="">About Us</a>
-            <a href="">Our Client</a>
-            <a href="{{route('service.index')}}">Our Service</a>
-            <a href="">Our Project</a>
-            <a href="{{route('contact')}}">Contact Us</a>
+        <div class="grid grid-cols-7 gap-3 place-items-center">
+            @foreach ($tempGroupLink as $itemLink)
+                <a href="{{$itemLink['link']}}" class="text-white font-semibold">{{$itemLink['title']}}</a>
+            @endforeach
         </div>
     </header>
 </div>
