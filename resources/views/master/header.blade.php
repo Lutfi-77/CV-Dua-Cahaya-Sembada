@@ -3,8 +3,8 @@ $tempGroupLink = [
     ['link' => route('home'), 'title' => 'Home'],
     ['link' => route('home'), 'title' => 'About'],
     ['link' => route('home'), 'title' => 'Our Client'],
-    ['link' => route('service.index'), 'title' => 'Service'],
-    ['link' => route('home'), 'title' => 'Project'],
+    ['link' => route('service.user'), 'title' => 'Service'],
+    ['link' => route('project.user'), 'title' => 'Project'],
     ['link' => route('home'), 'title' => 'Team'],
     ['link' => route('contact'), 'title' => 'Contant Us'],
 ];

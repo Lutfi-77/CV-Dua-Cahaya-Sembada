@@ -43,6 +43,7 @@
     @include('master.footer')
     
     
+    @stack('scripts')
 </body>
 
 </html>
