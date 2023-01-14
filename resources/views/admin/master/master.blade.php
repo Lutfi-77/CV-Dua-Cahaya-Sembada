@@ -10,6 +10,7 @@
     {{-- <link rel="stylesheet" href="{{asset("assets/css/admin/main.css")}}"> --}}
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
     @stack('styles')
 </head>
 
@@ -38,6 +39,13 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{asset("assets/js/admin/init-alpine.js")}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+    <script>
+        const easyMDE = new EasyMDE({
+            lineWrapping: true,
+        });
+
+    </script>
     {{-- <script src="{{asset("assets/js/admin/charts-lines.js")}}" defer></script>
     <script src="{{asset("assets/js/admin/charts-pie.js")}}" defer></script> --}}
     @stack('scripts')

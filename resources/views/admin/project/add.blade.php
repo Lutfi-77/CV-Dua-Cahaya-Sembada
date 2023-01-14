@@ -25,7 +25,8 @@
         <div class="grid grid-cols-2 gap-5">
             <div class="flex flex-col">
                 <label>title</label>
-                <input type="text" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none" name="title" value="{{old('title')}}">
+                <input type="text" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none"
+                    name="title" value="{{old('title')}}">
             </div>
             <div class="flex flex-col">
                 <label>Category</label>
@@ -38,11 +39,12 @@
         </div>
         <div class="flex flex-col">
             <label>Description</label>
-            <textarea name="description" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">{{old('description')}}</textarea>
+            <textarea name="description" wrap="hard" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none w-full">{{old('description')}}</textarea>
         </div>
         <div class="flex flex-col">
             <label>Image</label>
-            <input type="file" name="image" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+            <input type="file" name="image"
+                class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
         </div>
         <button class="bg-purple-600 text-white px-3 py-1 rounded-md mt-2">Save</button>
     </form>

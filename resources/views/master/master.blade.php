@@ -28,7 +28,7 @@
         
     @isset($topSpace) </div> @endisset
 
-    
+    @stack('scripts')
 </body>
 
 </html>
