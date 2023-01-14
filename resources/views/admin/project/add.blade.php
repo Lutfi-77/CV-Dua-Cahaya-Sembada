@@ -39,7 +39,7 @@
         </div>
         <div class="flex flex-col">
             <label>Description</label>
-            <textarea name="description" wrap="hard" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none w-full">{{old('description')}}</textarea>
+            <textarea name="description" wrap="hard" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none w-full" id="my-textarea">{{old('description')}}</textarea>
         </div>
         <div class="flex flex-col">
             <label>Image</label>

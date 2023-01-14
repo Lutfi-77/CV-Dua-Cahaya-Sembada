@@ -41,10 +41,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
     <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
     <script>
-        const easyMDE = new EasyMDE({
-            lineWrapping: true,
-        });
-
+        const easyMDE = new EasyMDE({element: document.getElementById('my-textarea')});
     </script>
     {{-- <script src="{{asset("assets/js/admin/charts-lines.js")}}" defer></script>
     <script src="{{asset("assets/js/admin/charts-pie.js")}}" defer></script> --}}

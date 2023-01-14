@@ -40,7 +40,7 @@
         </div>
         <div class="flex flex-col">
             <label>Description</label>
-            <textarea name="description" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">{{$project->description}}</textarea>
+            <textarea name="description" id="my-textarea" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">{{$project->description}}</textarea>
         </div>
         <div class="flex flex-col">
             <label>Image</label>
