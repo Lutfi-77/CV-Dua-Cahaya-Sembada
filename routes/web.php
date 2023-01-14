@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Controller User
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserServiceController;
+use App\Http\Controllers\UserProjectController;
 use App\Http\Controllers\ContactController;
 
 // Controller Admin
@@ -27,7 +28,8 @@ use App\Http\Controllers\admin\ProjectController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/service', [UserServiceController::class, 'index'])->name('service.index');
+Route::get('/service', [UserServiceController::class, 'index'])->name('service.user');
+Route::get('/project', [UserProjectController::class, 'index'])->name('project.user');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'sendMail'])->name('sendMail');
 
