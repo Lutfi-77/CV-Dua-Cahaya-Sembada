@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\Category;
 use App\Models\Service;
+use App\Models\Image;
 
 class ServiceController extends Controller
 {
@@ -43,22 +44,31 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $service = new Service;
+        // $path = array();
         $validated = $request->validate([
             'title' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpeg,png,jpg'
+            'image.*' => 'mimes:jpeg,png,jpg'
+        ], [
+            'image.*.mimes' => 'Only jpeg, jpg and png images are allowed',
         ]);
-
-        if($request->hasFile('image')){
-            $upload = $request->file('image')->store('img/service');
-            $service->image = $upload;
-        }
 
         $service->title = $request->title;
         $service->category_id = $request->category;
         $service->description = $request->description;
         $service->save();
+
+        if($request->hasFile('image')){
+            foreach( $request->file("image") as $item ){
+                $image = new Image;
+                $upload = $item->store('img/service');
+                $image->path = $upload;
+                $image->service_id = $service->id;
+                $image->save();
+            }
+        }
+        
         Alert::toast('Data berhasil ditambahkan', 'success');
         return redirect()->route('service');
 
@@ -131,7 +141,7 @@ class ServiceController extends Controller
         $delete = $service->delete();
         if( $delete ){
             if( $service->image){
-                Storage::disk('public')->delete($service->image);
+                Storage::disk('public')->delete($service->image->image_path);
             }
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('service');

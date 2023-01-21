@@ -24,6 +24,7 @@
         </thead>
         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
             @foreach ($services as $service)
+            {{-- {{dd($service->image->path)}} --}}
             <tr class="text-gray-700 dark:text-gray-400">
                 <td class="px-4 py-3">
                     {{$service->title}}
@@ -35,7 +36,7 @@
                     {{$service->description}}
                 </td>
                 <td class="px-4 py-3 text-sm">
-                    <img class="w-14 h-14" src="{{$service->image == null || $service->image == "" ? asset('assets/images/noimage.png') : url("storage/".$service->image)}}" alt="thumb">
+                    <img class="w-14 h-14" src="{{$service->image == null || $service->image == "" ? asset('assets/images/noimage.png') : url("storage/".$service->image->path)}}" alt="thumb">
                 </td>
                 <td class="px-4 py-3 text-sm">
                     <div class="flex">
