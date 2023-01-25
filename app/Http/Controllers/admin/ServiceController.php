@@ -111,14 +111,21 @@ class ServiceController extends Controller
             'title' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpeg,png,jpg'
+            'image.*' => 'mimes:jpeg,png,jpg'
+        ], [
+            'image.*.mimes' => 'Only jpeg, jpg and png images are allowed',
         ]);
         
         $service = Service::find($id);
 
         if($request->hasFile('image')){
-            $upload = $request->file('image')->store('img/service');
-            $service->image = $upload;
+            foreach( $request->file("image") as $item ){
+                $image = new Image;
+                $upload = $item->store('img/service');
+                $image->path = $upload;
+                $image->service_id = $service->id;
+                $image->save();
+            }
         }
 
         $service->title = $request->title;
@@ -138,17 +145,37 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         $service = Service::find($id);
+        $image = Image::where('service_id', $id)->get();
         $delete = $service->delete();
         if( $delete ){
-            if( $service->image){
-                Storage::disk('public')->delete($service->image->image_path);
+            if( $image ){
+                foreach($image as $item){
+                    Storage::disk('public')->delete($item->path);
+                }
             }
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('service');
         }else{
-            Alert::toast('Data berhasil dihapus', 'error');
+            Alert::toast('Data gagal dihapus', 'error');
             return redirect()->route('service');
         }
         
+    }
+
+    public function destroyImage($imageId, $serviceId)
+    {
+        // dd($serviceId);
+        $image = Image::find($imageId);
+        $delete = $image->delete();
+        if( $delete ){
+            if( $image ){
+                Storage::disk('public')->delete($image->path);
+            }
+            Alert::toast('Data berhasil dihapus', 'success');
+            return redirect()->route('service.edit', $serviceId);
+        }else{
+            Alert::toast('Data gagal dihapus', 'error');
+            return redirect()->route('service.edit', $serviceId);
+        }
     }
 }

@@ -36,7 +36,8 @@
                     {{$service->description}}
                 </td>
                 <td class="px-4 py-3 text-sm">
-                    <img class="w-14 h-14" src="{{$service->image == null || $service->image == "" ? asset('assets/images/noimage.png') : url("storage/".$service->image->path)}}" alt="thumb">
+                    {{-- {{dd($service->image->isEmpty())}} --}}
+                    <img class="w-14 h-14" src="{{$service->image == null || $service->image->isEmpty() ? asset('assets/images/noimage.png') : url("storage/".$service->image[0]->path)}}" alt="thumb">
                 </td>
                 <td class="px-4 py-3 text-sm">
                     <div class="flex">
