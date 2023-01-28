@@ -19,6 +19,7 @@
                 <th class="px-4 py-3">Category</th>
                 <th class="px-4 py-3">Description</th>
                 <th class="px-4 py-3">Image</th>
+                <th class="px-4 py-3">Icon</th>
                 <th class="px-4 py-3">Action</th>
             </tr>
         </thead>
@@ -36,8 +37,10 @@
                     {{$service->description}}
                 </td>
                 <td class="px-4 py-3 text-sm">
-                    {{-- {{dd($service->image->isEmpty())}} --}}
-                    <img class="w-14 h-14" src="{{$service->image == null || $service->image->isEmpty() ? asset('assets/images/noimage.png') : url("storage/".$service->image[0]->path)}}" alt="thumb">
+                    <img class="w-14 h-14" src="{{$service->image == null || $service->image == "" ? asset('assets/images/noimage.png') : url("storage/".$service->image)}}" alt="thumb">
+                </td>
+                <td class="px-4 py-3 text-sm">
+                    <img class="w-14 h-14" src="{{$service->icon == null || $service->icon == "" ? asset('assets/images/noimage.png') : url("storage/".$service->icon)}}" alt="thumb">
                 </td>
                 <td class="px-4 py-3 text-sm">
                     <div class="flex">

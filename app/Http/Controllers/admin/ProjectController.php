@@ -9,6 +9,7 @@ use Alert;
 
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Image;
 
 class ProjectController extends Controller
 {
@@ -47,18 +48,26 @@ class ProjectController extends Controller
             'title' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpeg,png,jpg'
+            'image.*' => 'mimes:jpeg,png,jpg'
+        ], [
+            'image.*.mimes' => 'Only jpeg, jpg and png images are allowed',
         ]);
-
-        if($request->hasFile('image')){
-            $upload = $request->file('image')->store('img/project');
-            $project->image = $upload;
-        }
 
         $project->title = $request->title;
         $project->category_id = $request->category;
         $project->description = $request->description;
         $project->save();
+
+        if($request->hasFile('image')){
+            foreach( $request->file("image") as $item ){
+                $image = new Image;
+                $upload = $item->store('img/project');
+                $image->path = $upload;
+                $image->project_id = $project->id;
+                $image->save();
+            }
+        }
+        
         Alert::toast('Data berhasil ditambahkan', 'success');
         return redirect()->route('project.index');
     }
@@ -101,12 +110,19 @@ class ProjectController extends Controller
             'title' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpeg,png,jpg'
+            'image.*' => 'mimes:jpeg,png,jpg'
+        ], [
+            'image.*.mimes' => 'Only jpeg, jpg and png images are allowed',
         ]);
 
         if($request->hasFile('image')){
-            $upload = $request->file('image')->store('img/project');
-            $project->image = $upload;
+            foreach( $request->file("image") as $item ){
+                $image = new Image;
+                $upload = $item->store('img/project');
+                $image->path = $upload;
+                $image->project_id = $project->id;
+                $image->save();
+            }
         }
 
         $project->title = $request->title;
@@ -126,16 +142,35 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
+        $image = Image::where('project_id', $id)->get();
         $delete = $project->delete();
         if( $delete ){
-            if( $project->image){
-                Storage::disk('public')->delete($project->image);
+            if( $image ){
+                foreach($image as $item){
+                    Storage::disk('public')->delete($item->path);
+                }
             }
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('project.index');
         }else{
             Alert::toast('Data gagal dihapus', 'error');
             return redirect()->route('project.index');
+        }
+    }
+
+    public function destroyImage($imageId, $projectId)
+    {
+        $image = Image::find($imageId);
+        $delete = $image->delete();
+        if( $delete ){
+            if( $image ){
+                Storage::disk('public')->delete($image->path);
+            }
+            Alert::toast('Data berhasil dihapus', 'success');
+            return redirect()->route('project.edit', $projectId);
+        }else{
+            Alert::toast('Data gagal dihapus', 'error');
+            return redirect()->route('project.edit', $projectId);
         }
     }
 }

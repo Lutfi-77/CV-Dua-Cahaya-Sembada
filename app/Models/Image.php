@@ -10,9 +10,9 @@ class Image extends Model
     use HasFactory;
 
 
-    public function service()
+    public function project()
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(Project::class);
     }
 
 }

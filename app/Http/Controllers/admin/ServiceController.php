@@ -44,30 +44,25 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $service = new Service;
-        // $path = array();
         $validated = $request->validate([
             'title' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image.*' => 'mimes:jpeg,png,jpg'
-        ], [
-            'image.*.mimes' => 'Only jpeg, jpg and png images are allowed',
+            'image' => 'mimes:jpeg,png,jpg',
+            'icon' => 'mimes:jpeg,png,jpg,svg'
         ]);
+
+        if($request->hasFile('image') || $request->hasFile('icon')){
+            $upload = $request->file('image')->store('img/service');
+            $icon = $request->file('icon')->store('img/service/icon');
+            $service->image = $upload;
+            $service->icon = $icon;
+        }
 
         $service->title = $request->title;
         $service->category_id = $request->category;
         $service->description = $request->description;
         $service->save();
-
-        if($request->hasFile('image')){
-            foreach( $request->file("image") as $item ){
-                $image = new Image;
-                $upload = $item->store('img/service');
-                $image->path = $upload;
-                $image->service_id = $service->id;
-                $image->save();
-            }
-        }
         
         Alert::toast('Data berhasil ditambahkan', 'success');
         return redirect()->route('service');
@@ -111,21 +106,18 @@ class ServiceController extends Controller
             'title' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image.*' => 'mimes:jpeg,png,jpg'
-        ], [
-            'image.*.mimes' => 'Only jpeg, jpg and png images are allowed',
+            'image' => 'mimes:jpeg,png,jpg',
+            'icon' => 'mimes:jpeg,png,jpg,svg'
         ]);
         
         $service = Service::find($id);
 
         if($request->hasFile('image')){
-            foreach( $request->file("image") as $item ){
-                $image = new Image;
-                $upload = $item->store('img/service');
-                $image->path = $upload;
-                $image->service_id = $service->id;
-                $image->save();
-            }
+            $upload = $request->file('image')->store('img/service');
+            $service->image = $upload;
+        }else if($request->hasFile('icon')){
+            $icon = $request->file('icon')->store('img/service/icon');
+            $service->icon = $icon;
         }
 
         $service->title = $request->title;
@@ -145,14 +137,10 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         $service = Service::find($id);
-        $image = Image::where('service_id', $id)->get();
         $delete = $service->delete();
         if( $delete ){
-            if( $image ){
-                foreach($image as $item){
-                    Storage::disk('public')->delete($item->path);
-                }
-            }
+            Storage::disk('public')->delete($service->image);
+            Storage::disk('public')->delete($service->icon);
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('service');
         }else{
@@ -160,22 +148,5 @@ class ServiceController extends Controller
             return redirect()->route('service');
         }
         
-    }
-
-    public function destroyImage($imageId, $serviceId)
-    {
-        // dd($serviceId);
-        $image = Image::find($imageId);
-        $delete = $image->delete();
-        if( $delete ){
-            if( $image ){
-                Storage::disk('public')->delete($image->path);
-            }
-            Alert::toast('Data berhasil dihapus', 'success');
-            return redirect()->route('service.edit', $serviceId);
-        }else{
-            Alert::toast('Data gagal dihapus', 'error');
-            return redirect()->route('service.edit', $serviceId);
-        }
     }
 }

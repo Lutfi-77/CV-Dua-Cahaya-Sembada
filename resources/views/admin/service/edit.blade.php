@@ -10,63 +10,50 @@
 @section('page-title', 'Add Services')
 
 @section('content')
-<div class="grid grid-cols-12">
-    <div class="bg-white shadow-xl px-5 py-5 col-span-10">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li class="text-red-500">*{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        <form action="{{route('service.update', request()->route('id'))}}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="grid grid-cols-2 gap-5">
-                <div class="flex flex-col">
-                    <label>title</label>
-                    <input type="text" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none"
-                        name="title" value="{{$service->title}}">
-                </div>
-                <div class="flex flex-col">
-                    <label>Category</label>
-                    <select name="category"
-                        class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
-                        <option selected value="{{$service->category_id}}">{{$service->category->category}}</option>
-                        @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->category}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="flex flex-col">
-                <label>Description</label>
-                <textarea name="description" id="my-textarea"
-                    class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">{{$service->description}}</textarea>
-            </div>
-            <div class="flex flex-col">
-                <label>Image</label>
-                <input type="file" name="image[]" multiple
-                    class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
-            </div>
-            <button class="bg-purple-600 text-white px-3 py-1 rounded-md mt-2">Save</button>
-        </form>
-    </div>
-
-    <div class="bg-white shadow-xl px-5 py-5 col-span-2">
-        <div class="grid grid-cols-2 gap-2 items-center">
-            @foreach ($service->image as $image)
-            <img class="w-14 h-14"
-                src="{{$image == null || $image == "" ? asset('assets/images/noimage.png') : url("storage/".$image->path)}}"
-                alt="thumb">
-            <form action="{{route('service.destroyImage', [$image->id, $service->id])}}" method="post">
-                @csrf
-                @method("DELETE")
-                <button class="bg-red-600 text-white py-1 px-2" onclick="return confirm('Yakin mau dihapus?')">Delete</button>
-            </form>
+<div class="bg-white shadow-xl px-5 py-5 col-span-10">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li class="text-red-500">*{{ $error }}</li>
             @endforeach
-        </div>
+        </ul>
     </div>
+    @endif
+    <form action="{{route('service.update', request()->route('id'))}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="grid grid-cols-2 gap-5">
+            <div class="flex flex-col">
+                <label>title</label>
+                <input type="text" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none"
+                    name="title" value="{{$service->title}}">
+            </div>
+            <div class="flex flex-col">
+                <label>Category</label>
+                <select name="category"
+                    class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+                    <option selected value="{{$service->category_id}}">{{$service->category->category}}</option>
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->category}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <label>Description</label>
+            <textarea name="description" id="my-textarea"
+                class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">{{$service->description}}</textarea>
+        </div>
+        <div class="flex flex-col">
+            <label>Image</label>
+            <input type="file" name="image" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+        </div>
+
+        <div class="flex flex-col">
+            <label>Icon</label>
+            <input type="file" name="icon" class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+        </div>
+        <button class="bg-purple-600 text-white px-3 py-1 rounded-md mt-2">Save</button>
+    </form>
 </div>
 @endsection

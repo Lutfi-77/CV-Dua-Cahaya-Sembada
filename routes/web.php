@@ -53,8 +53,6 @@ Route::prefix('backend')->group(function() {
         Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
         Route::post('/service/edit/{id}', [ServiceController::class, 'update'])->name('service.update');
         Route::get('/service/delete/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
-
-        Route::delete('/delete/image/{id}/service/{servId}', [ServiceController::class, 'destroyImage'])->name('service.destroyImage');
         
         Route::get('/category', [CategoryController::class, 'index'])->name('category');
         Route::get('/category/add', [CategoryController::class, 'categoryAdd'])->name('category.add');
@@ -65,5 +63,6 @@ Route::prefix('backend')->group(function() {
         
         Route::resource('/client', ClientController::class);
         Route::resource('/project', ProjectController::class);
+        Route::delete('project/delete/image/{id}/project/{projectId}', [ProjectController::class, 'destroyImage'])->name('project.destroyImage');
     });
 });

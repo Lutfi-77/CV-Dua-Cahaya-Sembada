@@ -43,8 +43,7 @@
         </div>
         <div class="flex flex-col">
             <label>Image</label>
-            <input type="file" name="image"
-                class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
+            <input type="file" name="image[]" multiple class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
         </div>
         <button class="bg-purple-600 text-white px-3 py-1 rounded-md mt-2">Save</button>
     </form>
