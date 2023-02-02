@@ -117,7 +117,9 @@ class ClientController extends Controller
         $client = Client::find($id);
         $delete = $client->delete();
         if( $delete ){
-            Storage::disk('public')->delete($client->client_image);
+            if( $client->client_image ){
+                Storage::disk('public')->delete($client->client_image);
+            }
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('client.index');
         }else{
