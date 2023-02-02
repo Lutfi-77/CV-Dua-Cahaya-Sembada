@@ -31,7 +31,7 @@
                     {{$service->title}}
                 </td>
                 <td class="px-4 py-3 text-sm">
-                    {{$service->category->category}}
+                    {{$service->category == null ? "" : $service->category->category}}
                 </td>
                 <td class="px-4 py-3 text-xs">
                     {{$service->description}}

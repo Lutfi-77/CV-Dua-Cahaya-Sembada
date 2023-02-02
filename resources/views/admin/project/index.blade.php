@@ -29,7 +29,7 @@
                     {{$project->title}}
                 </td>
                 <td class="px-4 py-3 text-sm">
-                    {{$project->category->category}}
+                    {{$project->category == null ? "" : $project->category->category}}
                 </td>
                 <td class="px-4 py-3 text-xs">
                     {{$project->description}}

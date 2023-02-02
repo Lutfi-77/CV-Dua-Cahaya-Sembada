@@ -79,13 +79,13 @@
                             {{$project->title}}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{$project->category->category}}
+                            {{$project->category == null ? "" : $project->category->category}}
                         </td>
                         <td class="px-4 py-3 text-xs">
                             {{$project->description}}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            <img class="w-14 h-14" src="{{$project->image == null || $project->image == "" ? asset('assets/images/noimage.png') : url("storage/".$project->image)}}" alt="thumb">
+                            <img class="w-14 h-14" src="{{$project->image == null || $project->image->isEmpty() ? asset('assets/images/noimage.png') : url("storage/".$project->image[0]->path)}}" alt="thumb">
                         </td>
                     </tr>
                     @endforeach

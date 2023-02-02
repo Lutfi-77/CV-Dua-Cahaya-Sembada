@@ -32,7 +32,7 @@
                 <label>Category</label>
                 <select name="category"
                     class="border rounded-md py-1 px-2 focus:border-purple-300 focus:outline-none">
-                    <option selected value="{{$service->category_id}}">{{$service->category->category}}</option>
+                    <option selected value="{{$service->category_id}}">{{$service->category == null ? "" : $service->category->category}}</option>
                     @foreach ($categories as $category)
                     <option value="{{$category->id}}">{{$category->category}}</option>
                     @endforeach

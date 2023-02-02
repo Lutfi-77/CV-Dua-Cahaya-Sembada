@@ -52,10 +52,22 @@ class ServiceController extends Controller
             'icon' => 'mimes:jpeg,png,jpg,svg'
         ]);
 
-        if($request->hasFile('image') || $request->hasFile('icon')){
+        // if($request->hasFile('image') || $request->hasFile('icon')){
+        //     $upload = $request->file('image')->store('img/service');
+        //     $icon = $request->file('icon')->store('img/service/icon');
+        //     $service->image = $upload;
+        //     $service->icon = $icon;
+        // }
+        if($request->hasFile('image') && $request->hasFile('icon')){
             $upload = $request->file('image')->store('img/service');
             $icon = $request->file('icon')->store('img/service/icon');
+            $service->icon = $icon;
             $service->image = $upload;
+        }else if($request->hasFile('image')){
+            $upload = $request->file('image')->store('img/service');
+            $service->image = $upload;
+        }else if($request->hasFile('icon')){
+            $icon = $request->file('icon')->store('img/service/icon');
             $service->icon = $icon;
         }
 
@@ -112,7 +124,12 @@ class ServiceController extends Controller
         
         $service = Service::find($id);
 
-        if($request->hasFile('image')){
+        if($request->hasFile('image') && $request->hasFile('icon')){
+            $upload = $request->file('image')->store('img/service');
+            $icon = $request->file('icon')->store('img/service/icon');
+            $service->icon = $icon;
+            $service->image = $upload;
+        }else if($request->hasFile('image')){
             $upload = $request->file('image')->store('img/service');
             $service->image = $upload;
         }else if($request->hasFile('icon')){
@@ -139,8 +156,14 @@ class ServiceController extends Controller
         $service = Service::find($id);
         $delete = $service->delete();
         if( $delete ){
-            Storage::disk('public')->delete($service->image);
-            Storage::disk('public')->delete($service->icon);
+            if( $service->image && $service->icon ){
+                Storage::disk('public')->delete($service->image);
+                Storage::disk('public')->delete($service->icon);
+            }else if( $service->image ){
+                Storage::disk('public')->delete($service->image);
+            }else if( $service->icon ){
+                Storage::disk('public')->delete($service->icon);
+            }
             Alert::toast('Data berhasil dihapus', 'success');
             return redirect()->route('service');
         }else{
