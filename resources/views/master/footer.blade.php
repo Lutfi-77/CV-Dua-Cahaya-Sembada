@@ -24,16 +24,10 @@
         </div>
 
         <div class="w-2/6 ml-4">
-            <h6 class="text-lg font-semibold mb-9 mt-5"> Contact </h6>
-            <a href="#" class="block mt-3">
-                +6281280981788
-            </a>
-
-            <a href="#" class="block mt-3">
-                ikblmul@gmail.com
-            </a>
-
-            <a href="#" class="block mt-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, ab saepe adipisci </a>
+            <h6 class="text-lg font-semibold mb-9 mt-5"> Address </h6>
+            
+            <a href="#" class="block mt-3">Ruko pesona cilebut Blok C1 no 7 
+                Jln. pendidikan no 41, cilebut barat, sukaraja, kab. bogor 16710, Indonesia </a>
         </div>
     </div>
 </div>

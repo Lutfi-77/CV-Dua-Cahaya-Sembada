@@ -20,14 +20,20 @@
         body {
             font-family: "Poppins";
         }
+
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+
+    @stack('styles')
+
 </head>
 
-<body class="font-nunito">
+<body>
 
     @include('sweetalert::alert')
     {{-- Header --}}

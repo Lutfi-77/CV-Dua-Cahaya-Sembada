@@ -2,19 +2,39 @@
 
 @section('title', 'Home')
 
+@push('styles')
+<style>
+    /* .navbar__link {
+        color : white;
+    } */
+</style>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" integrity="sha512-A64Nik4Ql7/W/PJk2RNOmVyC/Chobn5TY08CiKEX50Sdw+33WTOpPJ/63bfWPl0hxiRv1trPs5prKO8CpA7VNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+@endpush
+
 @section('content')
 
 {{-- #region hero home --}}
-<div class="home__background-hero" 
-style="background-image: url('/assets/images/background-photo-home.jpg')">
-    <div class="text-center m-auto ">
-        <h2 class="text-white font-semibold tracking-wide lg:text-3xl md:text-2xl  mb-12">
-            Engaged in trade event organizer <br />
+<div class="home__background-hero">
+    <div class="text-center m-auto px-2">
+        <h2 class="text-gray-800 font-semibold tracking-wide lg:text-2xl md:text-xl  mb-20 " id="home__hero-title">
+            <span class=" text-2xl md:text-6xl lg:text-7xl mb-7 md:mb-16 text-gray-800">Procurement <span class="text-blue-700"> Specialist </span> </span>
+
             <br />
-            and travel agency services
+            For Your business need. 
+
+            Whatever you need for your business, 
+            <br  class="hidden md:block" />
+            we'll make sure you get it.
+
+            
         </h2>
 
-        <a href="" class="text-yellow-400 hover:text-yellow-500 border-b-2 border-yellow-400 pb-2">Contact Us</a>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-gray-700 mx-auto animate-bounce" id="arrow-down-animation">
+            <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v16.19l2.47-2.47a.75.75 0 111.06 1.06l-3.75 3.75a.75.75 0 01-1.06 0l-3.75-3.75a.75.75 0 111.06-1.06l2.47 2.47V3a.75.75 0 01.75-.75z" clip-rule="evenodd" />
+        </svg>
+        
+        
+          
 
     </div>   
 
@@ -26,83 +46,135 @@ style="background-image: url('/assets/images/background-photo-home.jpg')">
 
 {{-- #region about section --}}
 
-<div class="mt-12 container mx-auto">
-    <h3 class="text-3xl font-semibold mb-14">About Us</h3>
+<div class="bg-yellow-100 pt-32 pb-12 home__about_background">
+    <div class="container mx-auto" id="about">
+        <h3 class="text-4xl md:text-6xl font-semibold mb-9 md:mb-16">About Us</h3>
 
-    <div class="leading-10 text-lg mb-7">
-        We founded this company on June 17, 2020. Armed with the <span class="bg-yellow-200">experience</span> of the founders in the field of trade, <span class="bg-red-200"> event organizer services</span> and a <span class="bg-yellow-200">tour agency</span>  that are quite capable, we are confident that we can make our company progress and develop.
+        <div class="leading-10 md:text-lg mb-7 home__about_us" >
+            We founded this company to provide companies with what they need to do business. Let us worry about getting you the tools you need so you can focus on running your business. Since we started in 2020, we have been able to help small companies get bigger and ensure large companies run smoothly.
+            <br />
+            <br />
+
+            <span class="mt-6">
+            We take pride in being a partner you can trust to deliver you what you need, when you need it.
+            </span>
+        </div>
     </div>
-
-    <span class="text-lg">
-        And can be a <span class="bg-blue-200">trusted partner by our clients.</span>
-    </span>
 </div>
 
 {{-- #endregion --}}
+
+
+{{-- #region Our Service section --}}
+
+<div class="mt-16 md:mt-32 container mx-auto text-center ">
+    <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Services</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
+        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
+            <img class="mx-auto w-16 absolute inset-x-0 -inset-y-10" src="/assets/images/thumb_up.svg" />
+            <h6 class="text-lg font-semibold mb-3 text-yellow-600 "> procurement </h6>
+            <span class="text-justify my-auto">Procurement of HSE equipments, Construction material, IT Products, Textile Products, and more </span>
+        </div>
+
+        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
+            <img class="mx-auto w-16 absolute inset-x-0 -inset-y-10" src="/assets/images/check.svg" />
+            <h6 class="text-lg font-semibold mb-3 text-yellow-600 "> installation </h6>
+            <span class="text-justify my-auto">Mechanical, Electrical, and Plumbing Installation </span>
+        </div>
+
+        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
+            <img class="mx-auto w-16 absolute inset-x-0 -inset-y-10" src="/assets/images/love.svg" />
+            <h6 class="text-lg font-semibold mb-3 text-yellow-600 "> Construction </h6>
+            <span class="text-justify my-auto"> Building Construction </span>
+        </div>
+    </div>
+
+</div>
+{{-- #endregion --}}
+
 
 
 {{-- #region our vision section --}}
-
-<div class="mt-32 container mx-auto text-center">
-    <h3 class="text-3xl font-semibold mb-9 text-center">Our Vision & Mision</h3>
-    <span>To be a company that excels in service and performance but remains grounded</span>
-    
-    <div class="grid grid-cols-3 gap-14 mt-24">
-        <div class="text-sm leading-loose">
-            <img class="mx-auto w-16 mb-7" src="/assets/images/love.svg" />
-
-            Creating jobs and creating a healthy and enjoyable work environment
-        </div>
-
-        <div class="text-sm leading-loose">
-
-            <img class="mx-auto w-16 mb-7" src="/assets/images/thumb_up.svg" />
-
-            Providing the best and sustainable products and services and in synergy with client needs
-        </div>
+<div class="bg-yellow-100 mt-32 py-24">
+    <div class=" container mx-auto text-center">
+        <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center text-yellow-700">Our Core Value</h3>
         
-        <div class="text-sm leading-loose">
-            <img class="mx-auto w-16 mb-7" src="/assets/images/check.svg" />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24 justify-items-center">
+            <div class="text-sm leading-loose">
+                <i class="fi fi-sr-handshake text-4xl"></i>
+                <h6 class="text-lg font-semibold mt-7"> Reliability </h6>
+                <span>Depend on us to do it right </span>
+            </div>
 
-            
-            Having a work process that respects each other and adds value to all stakeholders
+            <div class="text-sm leading-loose">
+                <i class="fi fi-sr-hand-holding-box text-4xl"></i>
+                <h6 class="text-lg font-semibold mt-7"> Respect </h6>
+                <span>Mutual Courtesy & Kindness afforded to all </span>
+            </div>
+
+            <div class="text-sm leading-loose">
+                <i class="fi fi-sr-fingerprint text-4xl"></i>
+                <h6 class="text-lg font-semibold mt-7"> Integrity </h6>
+                <span> Honest and Transparent in everything we do </span>
+            </div>
         </div>
-        
-    </div>
-</div>
-{{-- #endregion --}}
 
-{{-- #region our category services --}}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-14 mt-24 justify-items-center">
+            <div class="text-sm leading-loose">
+                <i class="fi fi-sr-users-alt text-4xl mt-7"></i>
+                <h6 class="text-lg font-semibold"> Collaboration </h6>
+                <span> Together, we find solutions and tackle challenges </span>
+            </div>
 
-<div class="mt-32 container mx-auto">
-    <h3 class="text-3xl font-semibold mb-14">Our Category of Services</h3>
-    <div class="grid grid-cols-3 gap-14 mt-16">
 
-        @foreach(range(1,3) as $c)
-        <a href="cc">
-            <img class="mx-auto w-full rounded-lg" src="/assets/images/background-photo-home.jpg" />
-
-            <h5 class="text-lg font-semibold mt-3"> Event Organizer </h5> 
-        </a>
-        @endforeach
+            <div class="text-sm leading-loose">
+                <i class="fi fi-sr-hand-holding-heart text-4xl"></i>
+                <h6 class="text-lg font-semibold mt-7"> Happiness </h6>
+                <span> Fun, Laughter and Enjoyment along the way </span>
+            </div>
+        </div>
     </div>
 </div>
 
+
 {{-- #endregion --}}
 
+
+
+{{-- #region Our Service section --}}
+
+<div class="mt-16 md:mt-32 container mx-auto">
+    <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Previous Project</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
+        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
+            <span class=" my-auto"> Procurement and Installation contactless elevator button for Indosat </span>
+        </div>
+
+        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
+            <span class=" my-auto"> Procurement and Instillation of touchless urinoir flushing system for Gojek </span>
+        </div>
+
+        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
+            <span class=" my-auto"> 
+                Procurement and Instillation of various MEP products for Bank Permata 
+            </span>
+        </div>
+    </div>
+
+</div>
+{{-- #endregion --}}
 
 {{-- #region our client --}}
 
 
-<div class="mt-32 container mx-auto">
-    <h3 class="text-3xl font-semibold mb-14">Our Client</h3>
-    <div class="grid grid-cols-3 gap-14 mt-16">
-
-        @foreach(range(1,3) as $c)
-        <a href="cc">
-            <img class="mx-auto w-full rounded-lg" src="/assets/images/background-photo-home.jpg" />
-        </a>
-        @endforeach
+<div class="mt-16 md:mt-64 container mx-auto items-center" id="client">
+    <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-16 text-center " >Our Client</h3>
+    <div class="grid grid-cols-3 md:grid-cols-5 gap-14 mt-16 items-center">
+        <img src="{{url('assets/brand/gojek.svg')}}" />
+        <img src="{{url('assets/brand/indosat.svg')}}" />
+        <img src="{{url('assets/brand/iss.png')}}" />
+        <img src="{{url('assets/brand/rb6j.png')}}" />
+        <img src="{{url('assets/brand/permata.svg')}}" />
     </div>
 </div>
 
@@ -112,21 +184,83 @@ style="background-image: url('/assets/images/background-photo-home.jpg')">
 
 {{-- #region cta --}}
 
-<div class="bg-blue-200 py-12 mt-12">
-    <div class="container mx-auto flex">
-        <div>
-            <h3 class="text-2xl font-semibold mb-6 text-blue-700"> Need Our Hand </h3>
-            <div class="text-lg leading-loose text-blue-600"> 
-                we are ready to help solve your problem, <br />
-                with our experience we belive your problem can be done
-            </div>
-        </div>
-        <div class="ml-auto my-auto bg-yellow-500 text-white px-5 py-3 rounded-full">contact now</div>
-    </div>
+<div class=" bg-blue-50 py-20 mt-12">
+  @include('contact')
 </div>
+
 
 {{-- #endregion --}}
 
 
 
 @endsection
+
+
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/split-type"></script>
+
+
+<script>
+    (function()  {
+
+        function animateSmoothArea(id) {
+            var splitText  = new SplitType(id, {type :  "line, chars"});
+
+
+            gsap.to(splitText.lines, {
+                y : 0,
+                opacity : 1,
+                stagger : 0.2,
+                delay : 0.1,
+                duration : .1,
+            })
+        }
+
+        animateSmoothArea(".home__about_us");
+
+        var splitText  = new SplitType("#home__hero-title", {type :  "line, chars"});
+
+        console.log(splitText);
+
+        gsap.to(splitText.chars, {
+            y : 0,
+            opacity : 1,
+            stagger : 0.007,
+            delay : 0.1,
+            duration : .09,
+        })
+
+        // gspa.from('.home__background-hero', {
+        //     opacity : 0,
+        //     duration : .1
+        // }).to({
+        //     opacity : 1,
+        // })
+
+
+    })();
+
+</script>
+<script>
+    (function() {
+        document.addEventListener('scroll',function (event) {
+            var scroll = window.scrollY;
+            var navEl = document.getElementById("navbar");
+
+            console.log(scroll);
+            if(scroll < 1) {
+                navEl.classList.remove("shadow-sm");
+                navEl.classList.remove("border-b-gray");
+            }
+
+
+            if(scroll > 2) {
+                navEl.classList.add("shadow-sm");
+                navEl.classList.add("border-b-gray");
+            }
+        },true)
+    })()
+
+</script>
+@endpush
