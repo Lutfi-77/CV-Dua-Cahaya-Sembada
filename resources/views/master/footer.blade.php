@@ -8,9 +8,9 @@
             <h6 class="text-lg font-semibold mb-5 mt-5"> Info </h6>
 
 
-            <a href="#" class="mb-5 block text-sm"> Services </a>
-            <a href="#" class="mb-5 block text-sm"> Product </a>
-            <a href="#" class="mb-5 block text-sm"> Client </a>
+            <a href="#service" class="mb-5 block text-sm"> Services </a>
+            <a href="#project" class="mb-5 block text-sm"> Projects </a>
+            <a href="#client" class="mb-5 block text-sm"> Client </a>
         
         </div>
 

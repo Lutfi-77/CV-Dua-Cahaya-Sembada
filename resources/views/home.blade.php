@@ -1,6 +1,6 @@
 @extends('master.master')
 
-@section('title', 'Home')
+@section('title', 'PT. Dua Cahaya Sembada')
 
 @push('styles')
 <style>
@@ -22,11 +22,9 @@
                     class="text-blue-700"> Specialist </span> </span>
 
             <br />
-            For Your business need.
-
-            Whatever you need for your business,
-            <br class="hidden md:block" />
-            we'll make sure you get it.
+            For your business need.
+            <br class="hidden md:block">
+            <span>Whatever you need for your business, we'll make sure you get it.</span>
 
 
         </h2>
@@ -74,11 +72,7 @@
 
 {{-- #region Our Service section --}}
 
-<<<<<<< HEAD
 <div class="mt-16 md:mt-32 container mx-auto text-center " id="service">
-=======
-<div class="mt-16 md:mt-32 container mx-auto text-center " id="our-service">
->>>>>>> 7a0f774 (adding data january)
     <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Services</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
         <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
@@ -155,23 +149,22 @@
 
 {{-- #region Our Service section --}}
 
-<<<<<<< HEAD
 <div class="mt-16 md:mt-32 container mx-auto" id="project">
-=======
-<div class="mt-16 md:mt-32 container mx-auto" id="our-project">
->>>>>>> 7a0f774 (adding data january)
     <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Previous Project</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
-        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
-            <span class=" my-auto"> Procurement and Installation contactless elevator button for Indosat </span>
+        <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
+            <img src="{{asset('assets/images/projects/indosat.jpeg')}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
+            <span class="block px-3"> Procurement and Installation contactless elevator button for Indosat </span>
         </div>
 
-        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
-            <span class=" my-auto"> Procurement and Instillation of touchless urinoir flushing system for Gojek </span>
+        <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
+            <img src="{{asset('assets/images/projects/gojek2.jpeg')}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
+            <span class="block px-3"> Procurement and Instillation of touchless urinoir flushing system for Gojek </span>
         </div>
 
-        <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
-            <span class=" my-auto">
+        <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
+            <img src="{{asset('assets/images/projects/permata.jpg')}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
+            <span class="block px-3">
                 Procurement and Instillation of various MEP products for Bank Permata
             </span>
         </div>
@@ -201,11 +194,7 @@
 {{-- #region cta --}}
 
 <div class=" bg-blue-50 py-20 mt-12" id="contact">
-<<<<<<< HEAD
     @include('contact')
-=======
-  @include('contact')
->>>>>>> 7a0f774 (adding data january)
 </div>
 
 
