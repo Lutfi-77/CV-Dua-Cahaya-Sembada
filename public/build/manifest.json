@@ -1,19 +1,19 @@
 {
-  "resources/img/gm-sh-3.svg": {
-    "file": "assets/gm-sh-3-fe35d261.svg",
-    "src": "resources/img/gm-sh-3.svg"
-  },
   "resources/img/gm-sh-2.svg": {
     "file": "assets/gm-sh-2-4ec58adf.svg",
     "src": "resources/img/gm-sh-2.svg"
   },
-  "resources/icons/arrow_down_accent.svg": {
-    "file": "assets/arrow_down_accent-fc3ab7c5.svg",
-    "src": "resources/icons/arrow_down_accent.svg"
-  },
   "resources/img/gm-sh-1.svg": {
     "file": "assets/gm-sh-1-86b4d034.svg",
     "src": "resources/img/gm-sh-1.svg"
+  },
+  "resources/img/gm-sh-3.svg": {
+    "file": "assets/gm-sh-3-fe35d261.svg",
+    "src": "resources/img/gm-sh-3.svg"
+  },
+  "resources/icons/arrow_down_accent.svg": {
+    "file": "assets/arrow_down_accent-fc3ab7c5.svg",
+    "src": "resources/icons/arrow_down_accent.svg"
   },
   "resources/css/app.css": {
     "file": "assets/app-e1e380f9.css",

@@ -32,7 +32,7 @@ class ContactController extends Controller
         ];
 
         try{
-            Mail::to('coprobot55@gmail.com')->send(new Contact($details));
+            Mail::to('sales@duasembadasakti.com')->send(new Contact($details));
             Alert::toast('Email Successfully Sent', 'success');
             return redirect()->route('contact');
         }catch(Exception $err){
