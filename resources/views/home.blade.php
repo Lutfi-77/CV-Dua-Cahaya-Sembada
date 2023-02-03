@@ -74,7 +74,11 @@
 
 {{-- #region Our Service section --}}
 
+<<<<<<< HEAD
 <div class="mt-16 md:mt-32 container mx-auto text-center " id="service">
+=======
+<div class="mt-16 md:mt-32 container mx-auto text-center " id="our-service">
+>>>>>>> 7a0f774 (adding data january)
     <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Services</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
         <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
@@ -151,7 +155,11 @@
 
 {{-- #region Our Service section --}}
 
+<<<<<<< HEAD
 <div class="mt-16 md:mt-32 container mx-auto" id="project">
+=======
+<div class="mt-16 md:mt-32 container mx-auto" id="our-project">
+>>>>>>> 7a0f774 (adding data january)
     <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Previous Project</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
         <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
@@ -193,7 +201,11 @@
 {{-- #region cta --}}
 
 <div class=" bg-blue-50 py-20 mt-12" id="contact">
+<<<<<<< HEAD
     @include('contact')
+=======
+  @include('contact')
+>>>>>>> 7a0f774 (adding data january)
 </div>
 
 

@@ -11,9 +11,9 @@ $tempGroupLink = [
 @endphp 
 
 <div class="fixed z-50 top-0 justify-center w-full bg-white" id="navbar">
-    <header class="container mx-auto flex justify-between items-center py-2">
-        <div class="w-20">
-            <img src="/assets/images/dcs.png" alt="logo" class="w-52">
+    <header class="container mx-auto flex justify-between items-center py-4">
+        <div class="w-9">
+            <img src="/assets/images/logo.svg" alt="logo" class="w-full">
         </div>
         <div class="grid grid-cols-4 gap-12 place-items-center">
             @foreach ($tempGroupLink as $itemLink)
