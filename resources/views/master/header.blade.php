@@ -1,11 +1,11 @@
 @php 
 $tempGroupLink = [
-    ['link' => route('home'), 'title' => 'Home'],
+    ['link' => '#home', 'title' => 'Home'],
     // ['link' => "/#about", 'title' => 'About'],
     // ['link' => "/#client", 'title' => 'Our Client'],
-    ['link' => route('service.user'), 'title' => 'Service'],
-    ['link' => route('project.user'), 'title' => 'Project'],
-    ['link' => route('home'), 'title' => 'Contact'],
+    ['link' => '#service', 'title' => 'Service'],
+    ['link' => '#project', 'title' => 'Project'],
+    ['link' => '#contact', 'title' => 'Contact'],
     // ['link' => route('contact'), 'title' => 'Contant Us'],
 ];
 @endphp 
