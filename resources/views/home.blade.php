@@ -18,10 +18,9 @@
 <div class="home__background-hero w-full overflow-x-hidden" id="home">
     <div class="text-center m-auto px-2">
         <h2 class="text-gray-800 font-semibold tracking-wide lg:text-2xl md:text-xl  mb-20 " id="home__hero-title">
-            <span class=" text-2xl md:text-6xl lg:text-7xl mb-7 md:mb-16 text-gray-800">Procurement <span
-                    class="text-blue-700"> Specialist </span> </span>
-
-            <br />
+            <span class=" text-2xl md:text-6xl lg:text-7xl mb-3 md:mb-9 text-gray-800">
+                Procurement <span class="text-blue-700"> Specialist </span> 
+            </span>
             For your business need.
             <br class="hidden md:block">
             <span>Whatever you need for your business, we'll make sure you get it.</span>
@@ -54,15 +53,16 @@
         <h3 class="text-4xl md:text-6xl font-semibold mb-9 md:mb-16">About Us</h3>
 
         <div class="leading-10 md:text-lg mb-7 home__about_us">
-            We founded this company to provide companies with what they need to do business. Let us worry about getting
-            you the tools you need so you can focus on running your business. Since we started in 2020, we have been
-            able to help small companies get bigger and ensure large companies run smoothly.
-            <br />
+            We founded this company to provide companies with what they need to do business. Let us worry about getting you the tools you need so you can focus on running your business. 
             <br />
 
-            <span class="mt-6">
+            Since we started in 2020, we have been able to help small companies get bigger and ensure large companies run smoothly.
+                
+             <br />
+
+            {{-- <span class="mt-3"> --}}
                 We take pride in being a partner you can trust to deliver you what you need, when you need it.
-            </span>
+            {{-- </span> --}}
         </div>
     </div>
 </div>

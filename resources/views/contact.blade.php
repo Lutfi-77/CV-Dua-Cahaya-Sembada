@@ -49,9 +49,9 @@
                 <div class="flex mt-3">
                     <i class="fi fi-sr-envelope "></i>
                     <div class="ml-5">
-                        <div>sales@duasembadasakti.com</div>
+                        <div>sales@duacahayasakti.com</div>
                         
-                        <div class="mt-2">info@duasembadasakti.com</div>
+                        <div class="mt-2">info@duacahayasakti.com</div>
                     </div>
                 </div>
 
