@@ -1,6 +1,6 @@
 @extends('master.master')
 
-@section('title', 'Services')
+@section('title', 'Projects')
 
 @section('content')
 <div class="container mx-auto mt-16">
