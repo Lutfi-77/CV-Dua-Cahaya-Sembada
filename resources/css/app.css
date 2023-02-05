@@ -10,12 +10,17 @@ html {
     @apply overflow-x-hidden;
 }
 
+html,
+body {
+    @apply scroll-smooth;
+}
+
 .icon-lg::before {
     @apply text-lg;
 }
 
 .home__background-hero {
-    @apply h-2/3 md:h-full w-screen bg-cover bg-center flex relative bg-no-repeat;
+    @apply h-full w-screen bg-cover bg-center flex relative bg-no-repeat;
 
     /* background-color: whitesmoke; */
     /* background-image: url(".."); */
@@ -67,16 +72,17 @@ html {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
+/* for text what ever you are */
 #home__hero-title .line:nth-child(2) {
-    @apply text-4xl text-gray-800;
+    @apply text-2xl md:text-4xl text-gray-800;
 }
 
 #home__hero-title .line:nth-child(3) {
-    @apply text-2xl text-gray-500;
+    @apply text-base md:text-2xl text-gray-500 px-14 md:px-0;
 }
 
 #home__hero-title .line:not(:last-child, :first-child) {
-    @apply mb-16;
+    @apply mb-9 md:mb-16;
 }
 
 #home__hero-title .char {

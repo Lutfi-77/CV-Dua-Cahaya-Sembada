@@ -17,8 +17,8 @@
 {{-- #region hero home --}}
 <div class="home__background-hero w-full overflow-x-hidden" id="home">
     <div class="text-center m-auto px-2">
-        <h2 class="text-gray-800 font-semibold tracking-wide lg:text-2xl md:text-xl  mb-20 " id="home__hero-title">
-            <span class=" text-2xl md:text-6xl lg:text-7xl mb-3 md:mb-9 text-gray-800">
+        <h2 class="text-gray-800 font-semibold tracking-wide lg:text-2xl md:text-xl  mb-20 mt-9 md:mt-0" id="home__hero-title">
+            <span class=" text-3xl md:text-6xl lg:text-7xl mb-6 md:mb-9 text-gray-800">
                 Procurement <span class="text-blue-700"> Specialist </span> 
             </span>
             For your business need.
