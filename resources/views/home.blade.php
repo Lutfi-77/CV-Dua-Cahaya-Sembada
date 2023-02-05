@@ -153,10 +153,12 @@
     <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Previous Project</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
         @foreach ($projects as $project)
-        <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
-            <img src="{{$project->image == null || $project->image->isEmpty() ? asset('assets/images/noimage.png') : url("storage/".$project->image[0]->path)}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
-            <span class="block px-3" id="description">{{$project->description}}</span>
-        </div>
+        <a href="{{route('project.user')}}">
+            <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
+                <img src="{{$project->image == null || $project->image->isEmpty() ? asset('assets/images/noimage.png') : url("storage/".$project->image[0]->path)}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
+                <span class="block px-3" id="description">{{$project->description}}</span>
+            </div>
+        </a>
         @endforeach
     </div>
 
