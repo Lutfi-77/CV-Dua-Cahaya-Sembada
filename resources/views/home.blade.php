@@ -152,22 +152,12 @@
 <div class="mt-16 md:mt-32 container mx-auto" id="project">
     <h3 class="text-3xl md:text-5xl font-semibold mb-9 md:mb-32 text-center">Our Previous Project</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mt-24">
+        @foreach ($projects as $project)
         <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
-            <img src="{{asset('assets/images/projects/indosat.jpeg')}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
-            <span class="block px-3"> Procurement and Installation contactless elevator button for Indosat </span>
+            <img src="{{$project->image == null || $project->image->isEmpty() ? asset('assets/images/noimage.png') : url("storage/".$project->image[0]->path)}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
+            <span class="block px-3" id="description">{{$project->description}}</span>
         </div>
-
-        <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
-            <img src="{{asset('assets/images/projects/gojek2.jpeg')}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
-            <span class="block px-3"> Procurement and Instillation of touchless urinoir flushing system for Gojek </span>
-        </div>
-
-        <div class="text-sm leading-loose shadow-lg pb-7 relative rounded-2xl overflow-hidden">
-            <img src="{{asset('assets/images/projects/permata.jpg')}}" alt="project" class="mb-5 max-h-96 w-full object-cover">
-            <span class="block px-3">
-                Procurement and Instillation of various MEP products for Bank Permata
-            </span>
-        </div>
+        @endforeach
     </div>
 
 </div>
@@ -276,6 +266,13 @@
             }
         }, true)
     })()
-
 </script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+<script>
+    let desc = document.getElementById("description")
+    let md = window.markdownit();
+    let result = md.render(desc.textContent);
+    desc.innerHTML = result
+</script>
+
 @endpush

@@ -34,7 +34,7 @@ class ContactController extends Controller
         try{
             Mail::to('sales@duasembadasakti.com')->send(new Contact($details));
             Alert::toast('Email Successfully Sent', 'success');
-            return redirect()->route('contact');
+            return redirect()->back();
         }catch(Exception $err){
             Alert::toast('Sent Email Failed', 'error');
             return redirect()->route('contact');
