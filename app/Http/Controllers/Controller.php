@@ -36,6 +36,11 @@ class Controller extends BaseController
                 "link" => route('project.index'),
                 "icon" => "home"
             ], 
+            [
+                "title" => "Manage Product",
+                "link" => route('product.index'),
+                "icon" => "home"
+            ], 
         ];
     }
 }

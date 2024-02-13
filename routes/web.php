@@ -15,7 +15,9 @@ use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\ClientController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProjectController;
+use App\Http\Controllers\ProductHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ Route::get('/service', [UserServiceController::class, 'index'])->name('service.u
 Route::get('/project', [UserProjectController::class, 'index'])->name('project.user');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'sendMail'])->name('sendMail');
+Route::get('/product/{service}', [ProductHomeController::class, 'index'])->name('product.home');
 
 Route::prefix('backend')->group(function() {
     Route::get('/', function() {
@@ -63,6 +66,7 @@ Route::prefix('backend')->group(function() {
         
         Route::resource('/client', ClientController::class);
         Route::resource('/project', ProjectController::class);
+        Route::resource('/product', ProductController::class);
         Route::delete('project/delete/image/{id}/project/{projectId}', [ProjectController::class, 'destroyImage'])->name('project.destroyImage');
     });
 });

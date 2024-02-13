@@ -1,6 +1,6 @@
 @extends('master.master')
 
-@section('title', 'PT. Dua Cahaya Sembada')
+@section('title', 'PT. Dua Cahaya Sakti')
 
 @push('styles')
 <style>
@@ -78,20 +78,29 @@
         <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
             <img class="mx-auto w-16 absolute inset-x-0 -inset-y-10" src="/assets/images/thumb_up.svg" />
             <h6 class="text-lg font-semibold mb-3 text-yellow-600 "> procurement </h6>
-            <span class="text-justify my-auto">Procurement of HSE equipments, Construction material, IT Products,
+            <span class="text-center my-auto block h-[75px]">Procurement of HSE equipments, Construction material, IT Products,
                 Textile Products, and more </span>
+            <div class="w-full bg-yellow-500 rounded-lg mt-3">
+                <a href="{{route('product.home', 'procurement')}}" class="text-white block w-full">See Product</a>
+            </div>
         </div>
 
         <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
             <img class="mx-auto w-16 absolute inset-x-0 -inset-y-10" src="/assets/images/check.svg" />
             <h6 class="text-lg font-semibold mb-3 text-yellow-600 "> installation </h6>
-            <span class="text-justify my-auto">Mechanical, Electrical, and Plumbing Installation </span>
+            <span class="text-center my-auto block h-[75px]">Mechanical, Electrical, and Plumbing Installation </span>
+            <div class="w-full bg-yellow-500 rounded-lg mt-3">
+                <a href="{{route('product.home', 'installation')}}" class="text-white block w-full">See Product</a>
+            </div>
         </div>
 
         <div class="text-sm leading-loose shadow-lg px-6 pb-7 pt-14 relative rounded-2xl">
             <img class="mx-auto w-16 absolute inset-x-0 -inset-y-10" src="/assets/images/love.svg" />
             <h6 class="text-lg font-semibold mb-3 text-yellow-600 "> Construction </h6>
-            <span class="text-justify my-auto"> Building Construction </span>
+            <span class="text-center my-auto block h-[75px]"> Building Construction </span>
+            <div class="w-full bg-yellow-500 rounded-lg mt-3">
+                <a href="{{route('product.home', 'construction')}}" class="text-white block w-full">See Product</a>
+            </div>
         </div>
     </div>
 
